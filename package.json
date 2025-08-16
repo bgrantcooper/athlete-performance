@@ -3,14 +3,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
     "dev": "react-router dev",
+    "build": "react-router build",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "drizzle-kit migrate",
+    "db:reset": "drizzle-kit drop",
+    "db:import": "tsx scripts/import-2025-data.ts"
   },
   "dependencies": {
     "@react-router/node": "^7.7.1",
+    "dotenv": "^17.2.1",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.4",
     "isbot": "^5.1.27",
+    "pg": "^8.16.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.7.1"
@@ -19,10 +28,12 @@
     "@react-router/dev": "^7.7.1",
     "@tailwindcss/vite": "^4.1.4",
     "@types/node": "^20",
+    "@types/pg": "^8.15.5",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vercel/react-router": "^1.2.2",
     "tailwindcss": "^4.1.4",
+    "tsx": "^4.20.4",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
     "vite-tsconfig-paths": "^5.1.4"
