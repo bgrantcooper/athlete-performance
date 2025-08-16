@@ -11,10 +11,12 @@
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
     "db:reset": "drizzle-kit drop",
-    "db:import": "tsx scripts/import-2025-data.ts"
+    "db:import": "tsx scripts/import-2025-data.ts",
+    "db:venue-import": "tsx scripts/enrich-venue-data.ts venue-data.csv"
   },
   "dependencies": {
     "@react-router/node": "^7.7.1",
+    "csv-parse": "^6.1.0",
     "dotenv": "^17.2.1",
     "drizzle-kit": "^0.31.4",
     "drizzle-orm": "^0.44.4",
