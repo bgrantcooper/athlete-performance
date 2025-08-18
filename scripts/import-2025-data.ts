@@ -341,7 +341,9 @@ class DataImporter {
     });
   }
 
-  private async getOrCreateAthlete(result: any): Promise<number> {
+  // Fixed getOrCreateAthlete function for scripts/import-2025-data.ts
+// Fixed getOrCreateAthlete function - correct Drizzle field references
+private async getOrCreateAthlete(result: any): Promise<number> {
     const athleteName = result.name.trim();
     
     if (this.athleteCache.has(athleteName)) {
@@ -355,37 +357,37 @@ class DataImporter {
     const existingPerson = await db.select()
       .from(schema.people)
       .where(and(
-        eq(schema.people.firstName, firstName),
-        eq(schema.people.lastName, lastName)
+        eq(schema.people.givenName, firstName),
+        eq(schema.people.familyName, lastName)
       ));
     
     if (existingPerson.length > 0) {
       // Check if this person has an athlete record
       const existingAthlete = await db.select()
         .from(schema.athletes)
-        .where(eq(schema.athletes.personId, existingPerson[0].id));
+        .where(eq(schema.athletes.personId, existingPerson[0].id)); // Use .id (Drizzle maps to person_id)
       
       if (existingAthlete.length > 0) {
-        this.athleteCache.set(athleteName, existingAthlete[0].id);
+        this.athleteCache.set(athleteName, existingAthlete[0].id); // Use .id (Drizzle maps to athlete_id)
         return existingAthlete[0].id;
       }
     }
 
     // Create new person
     const person = await db.insert(schema.people).values({
-      firstName: firstName,
-      lastName: lastName,
-      displayName: athleteName,
+      name: athleteName,              // Full name for required field
+      givenName: firstName,
+      familyName: lastName,
       gender: this.mapGender(result.gender),
     }).returning();
 
     // Create athlete
     const athlete = await db.insert(schema.athletes).values({
-      personId: person[0].id,
+      personId: person[0].id,         // Use .id (Drizzle maps to person_id)
       status: 'ACTIVE',
     }).returning();
 
-    this.athleteCache.set(athleteName, athlete[0].id);
+    this.athleteCache.set(athleteName, athlete[0].id); // Use .id (Drizzle maps to athlete_id)
     return athlete[0].id;
   }
 

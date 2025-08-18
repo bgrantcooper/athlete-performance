@@ -1,0 +1,1 @@
+ALTER TABLE "competitions" ALTER COLUMN "year" NOT NULL;

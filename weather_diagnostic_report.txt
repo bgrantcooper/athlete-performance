@@ -1,0 +1,85 @@
+=== WEATHER EXTRACTION DIAGNOSTIC REPORT ===
+Generated: 2025-08-18T01:04:06.533Z
+
+SUMMARY:
+- Backup weather records: 83
+- Current database events: 250
+- Successful matches: 71
+- Unmatched backup records: 12
+
+UNMATCHED BACKUP RECORDS:
+1. Line 11:
+   Name: "Race #2"
+   Description: "Race #2 - NAC Va''a California Series III Race #2 2025"
+   Date: "2025-02-01"
+   Issue: Name matches but description differs. Current: "Race #2 - NAC Va'a California Series III Race #2 2025"
+
+2. Line 12:
+   Name: "Para Only"
+   Description: "Para Only - NAC Va''a California Series III Race #2 2025"
+   Date: "2025-02-01"
+   Issue: Name matches but description differs. Current: "Para Only - NAC Va'a California Series III Race #2 2025"
+
+3. Line 14:
+   Name: "The Super Chill 8.5 Mile"
+   Description: "The Super Chill 8.5 Mile - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "The Super Chill 8.5 Mile - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+4. Line 15:
+   Name: "The Super Chill 8.5 Mile OC2"
+   Description: "The Super Chill 8.5 Mile OC2 - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "The Super Chill 8.5 Mile OC2 - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+5. Line 16:
+   Name: "Virtual Blizzard Race Series"
+   Description: "Virtual Blizzard Race Series - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "Virtual Blizzard Race Series - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+6. Line 17:
+   Name: "The Snowflake Sprint"
+   Description: "The Snowflake Sprint - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "The Snowflake Sprint - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+7. Line 18:
+   Name: "The Frosty 5 Mile"
+   Description: "The Frosty 5 Mile - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "The Frosty 5 Mile - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+8. Line 19:
+   Name: "The Polar Express 2 Mile"
+   Description: "The Polar Express 2 Mile - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "The Polar Express 2 Mile - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+9. Line 34:
+   Name: "Race # 3 - Point to Point"
+   Description: "Race # 3 - Point to Point - NAC Va''a California Series III Race #3 2025"
+   Date: "2025-03-01"
+   Issue: Name matches but description differs. Current: "Race # 3 - Point to Point - NAC Va'a California Series III Race #3 2025"
+
+10. Line 45:
+   Name: "RELAY RACE"
+   Description: "RELAY RACE - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "RELAY RACE - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+11. Line 46:
+   Name: "Polar Plunge (only)"
+   Description: "Polar Plunge (only) - Super Chill Paddle ''n Plunge II plus Virtual Blizzard Series"
+   Date: "2025-02-08"
+   Issue: Name matches but description differs. Current: "Polar Plunge (only) - Super Chill Paddle 'n Plunge II plus Virtual Blizzard Series"
+
+12. Line 53:
+   Name: "SUNDAY SPRINTS!  14'' SUP"
+   Description: "SUNDAY SPRINTS!  14'' SUP - Treasure Coast Paddle Battle 2025"
+   Date: "2025-03-15"
+   Issue: No event with matching name found in current database
+
+
+DUPLICATE ANALYSIS:
+No duplicates found

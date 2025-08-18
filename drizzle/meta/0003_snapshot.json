@@ -1,6 +1,6 @@
 {
-  "id": "da305d07-2367-4b78-91de-6bd902674c73",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "9fc02979-bb70-485d-8f8b-2522bbbaaf51",
+  "prevId": "19474320-7d5d-4186-8ac1-e02ab5d3d831",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -219,6 +219,18 @@
           "primaryKey": false,
           "notNull": true
         },
+        "short_name": {
+          "name": "short_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "year": {
+          "name": "year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "description": {
           "name": "description",
           "type": "text",
@@ -236,6 +248,12 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": true
+        },
+        "registration_deadline": {
+          "name": "registration_deadline",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
         },
         "status": {
           "name": "status",
@@ -264,6 +282,42 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true
+        },
+        "competition_rules": {
+          "name": "competition_rules",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weather_conditions": {
+          "name": "weather_conditions",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "water_conditions": {
+          "name": "water_conditions",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "entry_fee": {
+          "name": "entry_fee",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "prize_money": {
+          "name": "prize_money",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "currency": {
+          "name": "currency",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "website": {
           "name": "website",
@@ -309,6 +363,12 @@
         },
         "results_url": {
           "name": "results_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -494,6 +554,18 @@
           "primaryKey": false,
           "notNull": true
         },
+        "short_name": {
+          "name": "short_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "event_number": {
+          "name": "event_number",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
         "description": {
           "name": "description",
           "type": "text",
@@ -511,6 +583,13 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'SCHEDULED'"
         },
         "competition_id": {
           "name": "competition_id",
@@ -530,11 +609,96 @@
           "primaryKey": false,
           "notNull": true
         },
-        "weather_data": {
-          "name": "weather_data",
+        "venue_id": {
+          "name": "venue_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "distance": {
+          "name": "distance",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "distance_unit": {
+          "name": "distance_unit",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "course_description": {
+          "name": "course_description",
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "weather_conditions": {
+          "name": "weather_conditions",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "water_conditions": {
+          "name": "water_conditions",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "temperature": {
+          "name": "temperature",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "wind_speed": {
+          "name": "wind_speed",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "wind_direction": {
+          "name": "wind_direction",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "max_entries": {
+          "name": "max_entries",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "entry_fee": {
+          "name": "entry_fee",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timing_method": {
+          "name": "timing_method",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scoring_method": {
+          "name": "scoring_method",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
         }
       },
       "indexes": {},
@@ -574,6 +738,19 @@
           ],
           "columnsTo": [
             "category_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "events_venue_id_venues_venue_id_fk": {
+          "name": "events_venue_id_venues_venue_id_fk",
+          "tableFrom": "events",
+          "tableTo": "venues",
+          "columnsFrom": [
+            "venue_id"
+          ],
+          "columnsTo": [
+            "venue_id"
           ],
           "onDelete": "no action",
           "onUpdate": "no action"

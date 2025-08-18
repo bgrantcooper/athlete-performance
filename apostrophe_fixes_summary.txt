@@ -1,0 +1,16 @@
+Apostrophe Weather Fixes:
+
+Total fixes: 12
+
+event_id 12: Race #2 (64°F, 4.8 mph SSW)
+event_id 13: Para Only (64°F, 4.8 mph SSW)
+event_id 15: The Super Chill 8.5 Mile (52°F, 3.4 mph ENE)
+event_id 17: The Super Chill 8.5 Mile OC2 (52°F, 3.4 mph ENE)
+event_id 18: Virtual Blizzard Race Series (52°F, 3.4 mph ENE)
+event_id 19: The Snowflake Sprint (52°F, 3.4 mph ENE)
+event_id 20: The Frosty 5 Mile (52°F, 3.4 mph ENE)
+event_id 21: The Polar Express 2 Mile (52°F, 3.4 mph ENE)
+event_id 44: Race # 3 - Point to Point (63°F, 6.8 mph SSE)
+event_id 16: RELAY RACE (52°F, 3.4 mph ENE)
+event_id 22: Polar Plunge (only) (52°F, 3.4 mph ENE)
+event_id 69: SUNDAY SPRINTS!  14' SUP (81°F, 22.8 mph SSE)

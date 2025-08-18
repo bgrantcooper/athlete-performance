@@ -187,14 +187,11 @@ export const competitions = pgTable('competitions', {
   
   identifier: varchar('identifier', { length: 255 }).unique(),
   name: varchar('name', { length: 255 }).notNull(),
-  shortName: varchar('short_name', { length: 100 }), // Added back
-  year: integer('year').notNull(), // Made nullable for migration
   description: text('description'),
   
   // Dates
   startDate: timestamp('start_date').notNull(),
   endDate: timestamp('end_date').notNull(),
-  registrationDeadline: date('registration_deadline'),
   
   // Classification
   status: competitionStatusEnum('status').default('SCHEDULED').notNull(),
@@ -204,24 +201,15 @@ export const competitions = pgTable('competitions', {
   venueId: integer('venue_id').references(() => venues.id),
   organizerId: integer('organizer_id').references(() => organizations.id).notNull(),
   
-  // Competition details
-  competitionRules: text('competition_rules'),
-  weatherConditions: text('weather_conditions'),
-  waterConditions: text('water_conditions'),
-  entryFee: real('entry_fee'),
-  prizeMoney: real('prize_money'),
-  currency: text('currency'),
-  
-  // Service provider fields
+  // NEW: Service provider fields
   website: text('website'),
-  contactEmail: text('contact_email').array(),
+  contactEmail: text('contact_email').array(), // Updated to array
   registrationUrl: text('registration_url'),
-  promotionProvider: text('promotion_provider'),
-  promotionUrl: text('promotion_url'),
-  registrationProvider: text('registration_provider'),
-  resultsProvider: text('results_provider'),
-  resultsUrl: text('results_url'),
-  notes: text('notes'),
+  promotionProvider: text('promotion_provider'), // paddleguru, facebook, etc.
+  promotionUrl: text('promotion_url'),           // paddleguru event page
+  registrationProvider: text('registration_provider'), // webscorer, runsignup, etc.
+  resultsProvider: text('results_provider'),     // webscorer, paddleguru, etc.
+  resultsUrl: text('results_url'),              // where actual results live
   isPublic: boolean('is_public').default(true),
 });
 
@@ -231,43 +219,19 @@ export const events = pgTable('events', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
   
   name: varchar('name', { length: 255 }).notNull(),
-  shortName: varchar('short_name', { length: 100 }),
-  eventNumber: varchar('event_number', { length: 50 }),
   description: text('description'),
   
   // Timing
   scheduledStartTime: timestamp('scheduled_start_time').notNull(),
   actualStartTime: timestamp('actual_start_time'),
-  status: varchar('status', { length: 50 }).default('SCHEDULED'),
   
   // Classification
   competitionId: integer('competition_id').references(() => competitions.id).notNull(),
   disciplineId: integer('discipline_id').references(() => disciplines.id).notNull(),
   categoryId: integer('category_id').references(() => categories.id).notNull(),
   
-  // Venue (critical for multi-venue events)
-  venueId: integer('venue_id').references(() => venues.id),
-  
-  // Course details
-  distance: real('distance'),
-  distanceUnit: varchar('distance_unit', { length: 20 }),
-  courseDescription: text('course_description'),
-  
-  // Weather fields
-  weatherConditions: text('weather_conditions'),
-  waterConditions: text('water_conditions'),
-  temperature: real('temperature'),
-  windSpeed: real('wind_speed'),
-  windDirection: varchar('wind_direction', { length: 50 }),
-  
-  
-  // Event management
-  maxEntries: integer('max_entries'),
-  entryFee: real('entry_fee'),
-  timingMethod: varchar('timing_method', { length: 100 }),
-  scoringMethod: varchar('scoring_method', { length: 100 }),
-  notes: text('notes'),
-  isActive: boolean('is_active').default(true),
+  // NEW: Weather data field
+  weatherData: text('weather_data'), // JSON field for hourly weather
 });
 
 // ================================

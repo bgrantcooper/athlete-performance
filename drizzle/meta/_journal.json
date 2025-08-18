@@ -5,8 +5,29 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1755309583467,
-      "tag": "0000_common_stephen_strange",
+      "when": 1755463516773,
+      "tag": "0000_next_may_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1755467703021,
+      "tag": "0001_dear_jack_power",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755467979013,
+      "tag": "0002_tired_outlaw_kid",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1755477493436,
+      "tag": "0003_daffy_iron_lad",
       "breakpoints": true
     }
   ]
